@@ -2,7 +2,6 @@ import pyomo.environ as pyo
 import pandas as pd
 
 def create_model(aviones_df, costos_df, vuelos_df, D, M, delta):
-    
     overlaps = {}
     # Crear diccionario de traslapes
     for i, row_i in vuelos_df.iterrows():
@@ -22,7 +21,7 @@ def create_model(aviones_df, costos_df, vuelos_df, D, M, delta):
     model.A = pyo.Set(initialize=list(aviones_df.index.map(str)))
     model.F = pyo.Set(initialize=list(vuelos_df.index.map(str))) 
     # Pass this as a param, prompt for this value from UI
-    model.D = pyo.RangeSet(1, 6) 
+    model.D = pyo.RangeSet(1, D) 
 
     # Parametros
     costos_df = costos_df.pivot(index='Vuelo', columns='Avion', values='Costo_Operacion')

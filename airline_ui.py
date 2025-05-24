@@ -16,7 +16,7 @@ solver = pyo.SolverFactory('glpk')
 solver.solve(model, tee=True)
 
 # --- Resultados ---
-print(f"Costo mínimo de operación: {model.obj()}")
+print(f"Costo mínimo de operación: ${model.obj():,.2f}")
 
 print("\nAsignación de vuelos a aviones:")
 for f in model.F:

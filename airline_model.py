@@ -1,5 +1,4 @@
 import pyomo.environ as pyo
-import pandas as pd
 
 def create_model(aviones_df, costos_df, vuelos_df, D, M, delta):
     overlaps = {}
